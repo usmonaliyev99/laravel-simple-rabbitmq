@@ -200,7 +200,7 @@ If you don't give them, command uses default connection and queue.
   <h2>Contracts</h2>
   <div>
     <a href="https://t.me/+P7PlyAdDQAJjM2Fi" target="_blank">
-      We have a telegram group, you can join use.
+      We have a telegram group, you can join us.
     </a>
   </div>
   <br/>
