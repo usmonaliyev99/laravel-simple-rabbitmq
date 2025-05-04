@@ -31,7 +31,7 @@ class ConsumeCommand extends Command
      */
     public function handle(): void
     {
-        $queue = $this->argument('connection');
+        $queue = $this->argument('queue');
         $connection = $this->argument('connection');
 
         $action = App::make(ActionMQ::class);
