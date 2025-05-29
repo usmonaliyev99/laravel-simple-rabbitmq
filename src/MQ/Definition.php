@@ -4,12 +4,12 @@ namespace Usmonaliyev\SimpleRabbit\MQ;
 
 use Exception;
 use PhpAmqpLib\Channel\AMQPChannel;
-use PhpAmqpLib\Connection\AMQPStreamConnection;
+use PhpAmqpLib\Connection\AbstractConnection;
 use PhpAmqpLib\Wire\AMQPTable;
 
 class Definition
 {
-    private AMQPStreamConnection $connection;
+    private AbstractConnection $connection;
 
     private AMQPChannel $channel;
 
@@ -43,7 +43,7 @@ class Definition
      */
     private array $arguments = [];
 
-    public function __construct(AMQPStreamConnection $connection)
+    public function __construct(AbstractConnection $connection)
     {
         $this->connection = $connection;
 
