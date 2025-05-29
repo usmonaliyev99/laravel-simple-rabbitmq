@@ -107,6 +107,7 @@ class FooController
         
         SimpleMQ::exchange('foo-exchange')
           ->setBody(['name' => 'Первый Foo'])
+          ->setRoutingKey('foo.bar')
           ->handler('create-foo')
           ->publish();
           

@@ -25,12 +25,18 @@ class Publisher
      */
     private string $to;
 
-    public function __construct(AMQPMessage $message, string $connection, string $type, string $to)
+    /**
+     * Routing key used on exchanges
+     */
+    private string $routingKey;
+
+    public function __construct(AMQPMessage $message, string $connection, string $type, string $to, string $routingKey)
     {
         $this->message = $message;
         $this->connection = $connection;
         $this->type = $type;
         $this->to = $to;
+        $this->routingKey = $routingKey;
     }
 
     /**
@@ -64,7 +70,7 @@ class Publisher
         $connection = $this->getConnection();
         $channel = $connection->getChannel();
 
-        $channel->basic_publish($this->message, $this->to, ''); // TODO Routing key
+        $channel->basic_publish($this->message, $this->to, $this->routingKey);
     }
 
     /**

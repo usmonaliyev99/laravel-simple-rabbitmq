@@ -22,6 +22,11 @@ class MessageBuilder
      */
     private string $type;
 
+    /**
+     * @var string routing key used in messages sent to exchanges
+     */
+    private string $routingKey = '';
+
     private array $body = [];
 
     // Properties array containing message properties with default values
@@ -53,7 +58,7 @@ class MessageBuilder
 
         $message = $this->getMessage();
 
-        return new Publisher($message, $this->connection, $this->type, $this->to);
+        return new Publisher($message, $this->connection, $this->type, $this->to, $this->routingKey);
     }
 
     /**
@@ -121,5 +126,12 @@ class MessageBuilder
     private function buildHeaders(): AMQPTable
     {
         return new AMQPTable($this->properties['application_headers']);
+    }
+
+    public function setRoutingKey(string $routingKey): self
+    {
+        $this->routingKey = $routingKey;
+
+        return $this;
     }
 }
