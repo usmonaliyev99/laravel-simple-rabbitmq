@@ -43,7 +43,7 @@ class Connection
         $connectionConfig->setVhost($config['vhost']);
         $connectionConfig->setInsist($config['insist']);
         $connectionConfig->setLoginMethod($config['login_method']);
-        $connectionConfig->setLoginResponse($config['login_response']);
+        $connectionConfig->setLoginResponse($config['login_response'] ?? '');
         $connectionConfig->setLocale($config['locale']);
         $connectionConfig->setConnectionTimeout($config['connection_timeout']);
         $connectionConfig->setReadTimeout($config['read_write_timeout']);
@@ -51,8 +51,8 @@ class Connection
         $connectionConfig->setKeepalive($config['keepalive']);
         $connectionConfig->setHeartbeat($config['heartbeat']);
         $connectionConfig->setChannelRPCTimeout($config['channel_rpc_timeout']);
-        $connectionConfig->setIsSecure($config['is_secure']);
-        $connectionConfig->setIsLazy($config['is_lazy']);
+        $connectionConfig->setIsSecure($config['is_secure'] ?? false);
+        $connectionConfig->setIsLazy($config['is_lazy'] ?? false);
         $connectionConfig->setSslCaCert($config['ssl_ca_cert']);
         $connectionConfig->setSslCaPath($config['ssl_ca_path']);
         $connectionConfig->setSslCert($config['ssl_cert']);
