@@ -28,6 +28,7 @@ return [
     'connections' => [
 
         'default' => [
+            'io_type' => 'stream',
             'host' => env('SIMPLE_MQ_HOST', 'localhost'),
             'port' => env('SIMPLE_MQ_PORT', 5672),
             'username' => env('SIMPLE_MQ_USERNAME', 'guest'),
@@ -43,7 +44,18 @@ return [
             'keepalive' => false,
             'heartbeat' => false,
             'channel_rpc_timeout' => 0,
-            'ssl_protocol' => null,
+            'is_secure' => null,
+            'is_lazy' => null,
+            'ssl_ca_cert' => null,
+            'ssl_ca_path' => null,
+            'ssl_cert' => null,
+            'ssl_key' => null,
+            'ssl_verify' => null,
+            'ssl_verify_name' => null,
+            'ssl_pass_phrase' => null,
+            'ssl_ciphers' => null,
+            'ssl_security_level' => null,
+            'ssl_crypto_method' => null,
         ],
     ],
 

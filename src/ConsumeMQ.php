@@ -6,7 +6,7 @@ use Exception;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Config;
 use PhpAmqpLib\Channel\AMQPChannel;
-use PhpAmqpLib\Connection\AMQPStreamConnection;
+use PhpAmqpLib\Connection\AbstractConnection;
 use Usmonaliyev\SimpleRabbit\MQ\ConnectionManager;
 
 class ConsumeMQ
@@ -21,7 +21,7 @@ class ConsumeMQ
      */
     private ?string $queue = null;
 
-    private AMQPStreamConnection $amqpConnection;
+    private AbstractConnection $amqpConnection;
 
     private AMQPChannel $channel;
 
